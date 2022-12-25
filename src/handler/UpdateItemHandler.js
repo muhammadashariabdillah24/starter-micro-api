@@ -23,6 +23,8 @@ const UpdateItemHandler = async (req, h) => {
     item.tglTransaksi = tglTransaksi;
     item.jenisBarang = jenis_barang;
 
+    await item.save();
+
     const response = h.response({
       status: "success",
       message: "Item berhasil diperbarui",
