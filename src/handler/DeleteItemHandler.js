@@ -2,7 +2,7 @@ const Items = require("../models/Item");
 
 const DeleteItemHandler = async (req, h) => {
   try {
-    const { id } = requset.params;
+    const { id } = req.params;
 
     const item = await Items.findById(id);
 
