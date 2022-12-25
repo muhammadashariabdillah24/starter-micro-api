@@ -20,7 +20,7 @@ const routes = [
     handler: GetItemHandler,
   },
   {
-    method: "UPDATE",
+    method: "PUT",
     path: "/updateitem/{id}",
     handler: UpdateItemHandler,
   },
