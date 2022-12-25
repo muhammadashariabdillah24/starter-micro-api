@@ -25,7 +25,7 @@ const UpdateItemHandler = async (req, h) => {
 
     const response = h.response({
       status: "success",
-      message: "Update item berhasil ditambahkan",
+      message: "Item berhasil diperbarui",
     });
     response.code(200);
     return response;
