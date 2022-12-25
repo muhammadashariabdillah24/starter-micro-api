@@ -12,10 +12,12 @@ const GetItemHandler = async (req, h) => {
       response.code(500);
     }
 
+    const resultRemoveDuplicate = [...new Set(item)];
+
     const response = h.response({
       status: "success",
       message: "Berhasil mengambil data",
-      data: item,
+      data: resultRemoveDuplicate,
     });
     response.code(200);
     return response;
