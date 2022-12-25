@@ -5,6 +5,7 @@ const {
   OrderItemByDate,
   OrderItemByName,
 } = require("../handler/OrderItemHandler");
+const SearchItemHandler = require("../handler/SearchItemHandler");
 const UpdateItemHandler = require("../handler/UpdateItemHandler");
 
 const routes = [
@@ -17,6 +18,11 @@ const routes = [
     method: "DELETE",
     path: "/deleteitem/{id}",
     handler: DeleteItemHandler,
+  },
+  {
+    method: "GET",
+    path: "/searchitem/{name}",
+    handler: GetItemHandler,
   },
   {
     method: "GET",
