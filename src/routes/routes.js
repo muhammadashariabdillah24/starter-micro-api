@@ -22,7 +22,7 @@ const routes = [
   {
     method: "GET",
     path: "/searchitem/{name}",
-    handler: GetItemHandler,
+    handler: SearchItemHandler,
   },
   {
     method: "GET",
