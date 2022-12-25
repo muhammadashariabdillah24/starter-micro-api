@@ -13,7 +13,7 @@ const GetItemHandler = async (req, h) => {
     }
 
     const resultRemoveDuplicate = item.filter((c, index) => {
-      return chars.indexOf(c) !== index;
+      return item.indexOf(c) !== index;
     });
 
     const response = h.response({
