@@ -15,14 +15,7 @@ const GetItemHandler = async (req, h) => {
     const resultRemoveDuplicate = item.filter(
       (items, index) =>
         index ===
-        item.findIndex(
-          (other) =>
-            items.namaBarang === other.namaBarang &&
-            items.stok === other.stok &&
-            items.jumTerjual === other.jumTerjual &&
-            items.tglTransaksi === other.tglTransaksi &&
-            items.jenisBarang === other.jenisBarang
-        )
+        item.findIndex((other) => items.namaBarang === other.namaBarang)
     );
 
     const response = h.response({
