@@ -12,7 +12,9 @@ const GetItemHandler = async (req, h) => {
       response.code(500);
     }
 
-    const resultRemoveDuplicate = [...new Set(item)];
+    const resultRemoveDuplicate = item.filter((c, index) => {
+      return chars.indexOf(c) !== index;
+    });
 
     const response = h.response({
       status: "success",
