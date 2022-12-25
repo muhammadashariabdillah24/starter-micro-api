@@ -22,6 +22,13 @@ const UpdateItemHandler = async (req, h) => {
     item.jumTerjual = jumlah_terjual;
     item.tglTransaksi = tglTransaksi;
     item.jenisBarang = jenis_barang;
+
+    const response = h.response({
+      status: "success",
+      message: "Update item berhasil ditambahkan",
+    });
+    response.code(200);
+    return response;
   } catch (error) {
     const response = h.response({
       status: "failed",
