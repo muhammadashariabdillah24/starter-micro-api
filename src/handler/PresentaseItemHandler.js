@@ -1,3 +1,5 @@
+const Items = require("../models/Item");
+
 const PresentaseItemHandler = async (req, h) => {
   try {
     const { name } = req.params;
