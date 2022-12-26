@@ -11,11 +11,15 @@ const PresentaseItemHandler = async (req, h) => {
       response.code(404);
     }
 
-    const resultRemoveDuplicate = item.filter(
-      (items, index) =>
-        index ===
-        item.findIndex((other) => items.namaBarang === other.namaBarang)
-    );
+    const resultRemoveDuplicate = item
+      .filter(
+        (items, index) =>
+          index ===
+          item.findIndex((other) => items.namaBarang === other.namaBarang)
+      )
+      .reduce((acc, curr) => ({
+        jumTerjual: acc.jumTerjual + curr.jumTerjual,
+      }));
 
     const response = h.response({
       status: "success",
