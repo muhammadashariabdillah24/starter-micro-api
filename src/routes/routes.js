@@ -7,7 +7,6 @@ const {
 } = require("../handler/OrderItemHandler");
 const SearchItemHandler = require("../handler/SearchItemHandler");
 const UpdateItemHandler = require("../handler/UpdateItemHandler");
-const PresentaseItemHandler = require("../handler/PresentaseItemHandler");
 
 const routes = [
   {
@@ -39,11 +38,6 @@ const routes = [
     method: "GET",
     path: "/orderbydate",
     handler: OrderItemByDate,
-  },
-  {
-    method: "GET",
-    path: "/presentaseitemhandler",
-    handler: PresentaseItemHandler,
   },
   {
     method: "PUT",
