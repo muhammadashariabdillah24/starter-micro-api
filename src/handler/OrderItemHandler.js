@@ -7,24 +7,24 @@ const OrderItemByName = async (req, h) => {
     if (!item) {
       const response = h.response({
         status: "failed",
-        message: "Terjadi kesalahan saat mengurutkan data, silahkan coba lagi",
+        message: "Terjadi kesalahan saat , silahkan coba lagi",
       });
       response.code(500);
     }
 
-    const resultRemoveDuplicate = item.filter(
-      (items, index) =>
-        index ===
-        item.findIndex((other) => items.namaBarang === other.namaBarang)
-    );
-
-    const sortedList = resultRemoveDuplicate.sort((a, b) =>
-      a.namaBarang.localeCompare(b.namaBarang)
-    );
+    const resultRemoveDuplicate = item
+      .filter(
+        (items, index) =>
+          index ===
+          item.findIndex((other) => items.namaBarang === other.namaBarang)
+      )
+      .reduce((acc, curr) => ({
+        jumTerjual: acc.jumTerjual + curr.jumTerjual,
+      }));
 
     const response = h.response({
       status: "success",
-      data: sortedList,
+      data: resultRemoveDuplicate,
     });
     response.code(200);
     return response;
