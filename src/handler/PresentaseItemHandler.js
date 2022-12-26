@@ -36,3 +36,5 @@ const PresentaseItemHandler = async (req, h) => {
     return response;
   }
 };
+
+module.exports = PresentaseItemHandler;
