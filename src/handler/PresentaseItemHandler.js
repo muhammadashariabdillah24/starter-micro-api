@@ -2,8 +2,7 @@ const Items = require("../models/Item");
 
 const PresentaseItemHandler = async (req, h) => {
   try {
-    const { name } = req.params;
-    const item = await Items.find({ namaBarang: name });
+    const item = await Items.find();
 
     if (!item) {
       const response = h.response({
@@ -13,19 +12,11 @@ const PresentaseItemHandler = async (req, h) => {
       response.code(404);
     }
 
-    const resultRemoveDuplicate = item
-      .filter(
-        (items, index) =>
-          index ===
-          item.findIndex((other) => items.namaBarang === other.namaBarang)
-      )
-      .reduce((acc, curr) => ({
-        jumTerjual: acc.jumTerjual + curr.jumTerjual,
-      }));
+    const searchDuplicate = [...new Set(item.map((a) => a.namaBarang))];
 
     const response = h.response({
       status: "success",
-      data: resultRemoveDuplicate,
+      data: searchDuplicate,
     });
     response.code(200);
     return response;
