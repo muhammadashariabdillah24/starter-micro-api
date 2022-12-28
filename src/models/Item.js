@@ -5,10 +5,7 @@ const itemSchema = new Schema({
   namaBarang: String,
   stok: Number,
   jumTerjual: Number,
-  tglTransaksi: {
-    type: Date,
-    default: Date.now,
-  },
+  tglTransaksi: String,
   jenisBarang: String,
 });
 
